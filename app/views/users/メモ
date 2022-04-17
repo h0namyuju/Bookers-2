@@ -1,0 +1,4 @@
+, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
