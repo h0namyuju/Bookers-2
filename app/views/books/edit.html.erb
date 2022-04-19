@@ -1,0 +1,13 @@
+ <div class= "field">
+  <%= f.label :Title %>
+  <%= f.text_field :title %>
+
+ <div class="field">
+  <%= f.label :Opinion %>
+  <%= f.text_area :body %>
+
+  <div class="actions">
+   <%= f.submit 'Create Book', class:"btn btn-lg btn-success btn-info mt-4" %>
+
+   <%= link_to"Show", book_path %>|
+   <%= link_to"Back", books_path %>

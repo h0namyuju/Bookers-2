@@ -6,14 +6,13 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
-
-
-  def edit
-  end
-
   def index
     @book = Book.new
     @books = Book.all
+  end
+  
+  def edit
+  
   end
 
   def user_params
