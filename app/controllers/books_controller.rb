@@ -7,11 +7,13 @@ class BooksController < ApplicationController
   def show
     @books = Book.find(params[:id])
     @book = Book.new
+    @user = User.find(@books.user_id)
   end
 
   def index
      @book = Book.new
      @books = Book.all
+     @user = current_user
   end
 
   def create
@@ -31,28 +33,28 @@ class BooksController < ApplicationController
     end
   end
 
-  def destrpy
-      book =　Book.find(params[:id])
-      book.destroy
+  def destroy
+      @book = Book.find(params[:id])
+      @book.destroy
       flash[:success] = "Book was successfully destroyed."
-      redirect_to '/book'
+      redirect_to books_path
   end
-  
+
   def edit
       @book = Book.find(params[:id])
   end
-  
+
   def update
-    @book = Book.find(params[:id])
-    @book.update
-    redirect_to 
+    book = Book.find(params[:id])
+    book.update(book.params)
+    redirect_to book_path(book.id)
   end
 
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :opinion)
   end
 end
 

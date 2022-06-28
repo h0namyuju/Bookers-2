@@ -1,0 +1,34 @@
+  <p id="notice"></p>
+  <div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <h2>Editing Book</h2>
+
+   <%= form_with model: @user do |f| %>
+
+      <div class="field">
+      <%= f.label :Name %><br>
+      <%= f.text_field :name, autofocus: true, od:"inputName"%>
+      </div>
+
+     <div class="field">
+       <%= f.file_field :image, accept:"image/*" %>
+    </div>
+
+      <div class="field">
+      <%= f.label :Introduction %><br>
+      <%= f.text_area :introduction, autofocus: true, od:"inputintroduction"%>
+      </div>
+
+      <div class="field">
+      <%= f.submit 'Update User', class:"btn btn-" %>
+      </div>
+      <% end %>
+       <%= link_to 'Show',book_path(book.id) %>
+     
+
+      
+
+ </div>
+</div>
+</div>

@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2022_04_12_121528) do
     t.integer "user_id"
     t.string "name"
     t.string "opinion"
+    t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
