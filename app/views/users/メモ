@@ -1,13 +1,7 @@
 
-<%= form_with model: @user do |f| %>
-<div class="form-group">
-        <label for="user_introduction">Introduction</label><br>
-       <%= f.text_area :introduction %>
-      </div>
+ def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    @book.save
+    redirect_to book_path(@book)
 
-      <div class="form-group">
-       <%= f.submit ' Update User ', class:"btn btn-secondary" %>
-      </div>
-       <% end %>
-       
-      
