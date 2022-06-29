@@ -14,6 +14,7 @@ class BooksController < ApplicationController
      @book = Book.new
      @books = Book.all
      @user = current_user
+     @users = User.all
   end
 
   def create
@@ -44,17 +45,12 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
   end
 
-  def update
-    book = Book.find(params[:id])
-    book.update(book.params)
-    redirect_to book_path(book.id)
-  end
 
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :opinion)
+    params.require(:book).permit(:title, :body, :opinion, :proofile_image)
   end
 end
 

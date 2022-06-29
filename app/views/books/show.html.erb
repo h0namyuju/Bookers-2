@@ -11,15 +11,15 @@ You have updated book successfully.
  <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
 
-  <table>
+      <table class="table table-hover table-inverse">
         <tr>
-          <td><%= image_tag 'default-image', size: "80x80" %><br>
+          <td><%= image_tag @user.get_profile_image(100,100) %><br>
           <%= link_to @user.name, user_path(@user.id) %>
           </td>
           <td><%= link_to @books.title, book_path %></td>
           <td><%= @books.opinion %></td>
 
-           <% if @books.user = current_user %>
+           <% if @books.user == current_user %>
           <td><%= link_to 'Edit', edit_book_path(@books.id), class:"btn btn-sm btn-success" %></td>
           <td><%= link_to 'Destroy', book_path(@books.id), method: :delete, "data-confirm" => "本当に消しますか？", class:"btn btn-sm btn-danger" %></td>
         </tr>
