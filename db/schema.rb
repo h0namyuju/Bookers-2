@@ -44,9 +44,6 @@ ActiveRecord::Schema.define(version: 2022_04_12_121528) do
     t.string "title"
     t.string "body"
     t.integer "user_id"
-    t.string "name"
-    t.string "opinion"
-    t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -56,7 +53,6 @@ ActiveRecord::Schema.define(version: 2022_04_12_121528) do
     t.string "encrypted_password", default: "", null: false
     t.string "name"
     t.string "image"
-    t.string "opinion"
     t.text "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

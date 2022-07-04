@@ -1,4 +1,6 @@
-       <%= flash[:success] %>
+       <%= if flash[:success] %>
+       <p id="notice"><%= flash[:success] %></p.
+       <% end %>
 
 
 <div class="container">
@@ -25,7 +27,7 @@
 
           <td><%= image_tag @user.get_profile_image(80,80) %></td>
           <td><%= link_to book.title,book_path(book.id)%></td>
-          <td><%= book.opinion %></td>
+          <td><%= book.body %></td>
           </tr>
         <% end %>
         </tbody>
