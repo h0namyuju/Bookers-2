@@ -18,49 +18,57 @@
     <a class="navbar-brand" href="#"><span>Bookers</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-   　</button>
+   </button>
      <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
 
 
         <% if user_signed_in? %>
           <li>
-            <a class="nav-link text-light" href="/users/show">
+            <%= link_to user_path(current_user),class: "nav-link text-light" do %>
             <i class="fas fa-home"></i> Home</a></li>
+            <% end %>
          <% else %>
           <li>
-            <a class="nav-link text-light" href="/">
+            <%= link_to root_path,class: "nav-link text-light" do %>
             <i class="fas fa-home"></i> Home</a></li>
+            <% end %>
         <% end %>
 
         <% if user_signed_in? %>
           <li>
-            <a class="nav-link text-light" href="/users">
+            <%= link_to users_path,class: "nav-link text-light" do %>
             <i class="fas fa-users"></i> Users</a></li>
+            <% end %>
           <% else %>
           <li>
-            <a class="nav-link text-light" href="/home/about">
+            <%= link_to home_about_path,class: "nav-link text-light" do %>
             <i class="fas fa-link"></i> About</a></li>
+            <% end %>
         <% end %>
 
         <% if user_signed_in? %>
           <li>
-            <a class="nav-link text-light" href="/books">
+            <%= link_to books_path,class: "nav-link text-light" do %>
             <i class="fas fa-book-open"></i> Books</a></li>
+            <% end %>
           <% else %>
           <li>
-            <a class="nav-link text-light" href="/users/sign_up">
+            <%= link_to new_user_registration_path,class: "nav-link text-light" do %>
             <i class="fas fa-user-plus"></i> Sign up</a></liv>
+            <% end %>
         <% end %>
 
         <% if user_signed_in? %>
           <li>
-            <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
             <i class="fas fa-sign-out-alt"></i> Log out</a></li>
+            <% end %>
           <% else %>
           <li>
-            <a class="nav-link text-light" href="/users/sign_in">
+            <%= link_to new_user_session_path,class: "nav-link text-light" do %>
             <i class="fas fa-sign-in-alt"></i> Log in</a></li>
+            <% end %>
         <% end %>
     </ul>
   </div>

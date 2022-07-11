@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-
+before_action :ensure_current_user, {only: [:edit]}
 
 
   def show
@@ -17,7 +16,6 @@ class UsersController < ApplicationController
   end
 
 
-
   def edit
     @user = User.find(params[:id])
   end
@@ -26,12 +24,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
   if @user.update(user_params)
-    flash[:success] = "You have updated user successfully."
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path (@user.id)
   else
-    render :"users/edit"
-
+    render "users/edit"
   end
+  end
+
+  def ensure_current_user
+     @user = User.find(params[:id])
+     if current_user.id != @user.id
+     redirect_to user_path(current_user)
+     end
   end
 
   def user_params
